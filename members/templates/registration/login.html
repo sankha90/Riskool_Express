@@ -1,0 +1,35 @@
+<title> Login </title>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1><center>Login &#128433</h1></center>
+<br/>
+<div class ='form-group'>
+<form method="POST">
+	{% csrf_token %}
+	<form>
+  <fieldset>
+    <div class="form-group row">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="form-label mt-4">Username</label>
+      <input type="text" class="form-control" placeholder="Please enter your username" name="username">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Please enter your password" name="password">
+    </div>
+    <br/>
+	<button class="btn btn-secondary">Login</button>
+
+	<br/><br/>
+
+	Not registered? Sign Up <a href="{% url 'register'%}">Here</a>
+</div>
+
+	
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	</center>
+		{%if searched%}
+
+			<center><h1>You Searched For {{searched}} &#128269;</h1></center>
+			<br/>
+
+			<ul>
+			{% for post in results %}
+				<li><strong><font face='courier' size="4" color="black"><a href="{% url 'article-detail' post.pk %} ">{{post.title}}</a></strong></font>
+				<small>~{{post.author}} ~ {{post.post_date}}</small		>
+				{{post.body|safe|slice:":30"}}</li>	
+
+			{% endfor %}
+			</ul>
+
+		{% else %}
+	
+			<h2> You forgot to search for a Keyword</h2></centre>	
+
+		{%endif%}
+	</center>
+
+
+
+{% endblock %}1

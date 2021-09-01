@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1><br/><center>Post &#128214
+</h1></center>
+<br/><br/>
+
+<ul>
+{% for post in object_list %}
+	<li><strong><font face='courier' size="4" color="black"><a href="{% url 'article-detail' post.pk %}  ">{{post.title}}</a></strong></font>
+	<small>~{{post.author}} ~ {{post.post_date}}</small>
+	{{post.body|safe|slice:":30"}}</li>
+	<hr class="my-2" width="1200" />
+
+
+{% endfor %}
+<br/>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      </a>
+    </li>
+      		</li>
+			{%if page_obj.has_previous%}
+			<a class="page-link" href="?page=1">&laquo; first</a> </li>
+			<a class="page-link" href="?page={{page_obj.previous_page_number}}">&laquo; previous</a></li>
+			{%endif%}
+
+			{%if page_obj.has_next%}
+			<a class="page-link" href="?page={{page_obj.next_page_number}}"> next &raquo;</a> </li>
+			<a class="page-link" href="?page={{page_obj.paginator.num_pages}}"> last &raquo;</a> </li>
+			{%endif%}
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      </a>
+    </li>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+{% endblock %}
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
