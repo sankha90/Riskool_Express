@@ -1,8 +1,16 @@
 from django.db import models
+from django import forms
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
 from ckeditor.fields import RichTextField
+from ckeditor.widgets import CKEditorWidget
+from tinymce import models as tinymce_models
+
+
+#from django_editorjs import EditorJsField
+
+
 
 
 # Create your models here.
@@ -10,8 +18,9 @@ class Post(models.Model):
 	title = models.CharField(max_length=255)
 	title_tag = models.CharField(max_length=255)
 	author = models.ForeignKey(User,on_delete=models.CASCADE)
-	#body = RichTextField(blank=True, null=True)
-	body = models.TextField()
+	body = RichTextField(blank=True, null=True)
+	#body = tinymce_models.HTMLField()
+	#body = EditorJsField()
 	post_date = models.DateField(auto_now_add=True)
 	likes = models.ManyToManyField(User,related_name='blog_posts')
 
