@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'tinymce',
 ]
 
+CKEDITOR_JQUERY_URL = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"
+
 CKEDITOR_CONFIGS = {
     'myckeditor': {
         'toolbar': 'Custom',
@@ -55,6 +57,8 @@ CKEDITOR_CONFIGS = {
         ]
     }
 }
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
