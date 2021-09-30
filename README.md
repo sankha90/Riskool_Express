@@ -3,4 +3,4 @@
 This is a mini blog application , entirely made in django with login and registration and pagination functionalities.
 its currently hosted on heroku , you can access it here : https://riskool.herokuapp.com/
 
-![Imgur](https://imgur.com/gallery/yciSGtF)
+<img src='./misc/riskool.png'>
